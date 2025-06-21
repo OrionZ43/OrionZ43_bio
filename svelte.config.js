@@ -1,10 +1,8 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import type { Config } from '@sveltejs/kit';
 
-const base_path = process.env.BASE_PATH || '';
-
-const config: Config = {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
     preprocess: vitePreprocess(),
     kit: {
         adapter: adapter({
@@ -14,7 +12,7 @@ const config: Config = {
         }),
 
         paths: {
-            base: base_path as '' | `/${string}`
+             base: '/OrionZ43_bio'
         },
         prerender: {
             entries: ['*']
