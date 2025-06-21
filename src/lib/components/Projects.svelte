@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
+    import { base } from '$app/paths';
 </script>
 
 <div class="w-full max-w-6xl mx-auto text-center">

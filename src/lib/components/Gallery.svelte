@@ -1,6 +1,7 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
     import Lightbox from './Lightbox.svelte';
+    import { base } from '$app/paths';
 
     const artworks = [
     {

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
+    import { base } from '$app/paths';
 </script>
 
 <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
