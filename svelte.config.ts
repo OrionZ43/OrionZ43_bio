@@ -8,10 +8,16 @@ const config: Config = {
     preprocess: vitePreprocess(),
     kit: {
         adapter: adapter({
+            pages: 'build',
+            assets: 'build',
             fallback: '404.html'
         }),
+
         paths: {
             base: base_path as '' | `/${string}`
+        },
+        prerender: {
+            entries: ['*']
         }
     }
 };
