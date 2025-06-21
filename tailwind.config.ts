@@ -1,21 +1,17 @@
-import type { Config } from 'tailwindcss';
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
 
-const config: Config = {
-    content: ['./src/**/*.{html,js,svelte,ts}'],
-
-    theme: {
-        extend: {
-            colors: {
-                'cyber-cyan': '#00f0ff',
-                'cyber-yellow': '#fcee0a',
-                'cyber-red': '#ff003c',
-            },
-            fontFamily: {
-            },
-        },
+  theme: {
+    extend: {
+      colors: {
+        'cyber-cyan': '#00f0ff',
+        'cyber-yellow': '#fcee0a',
+        'cyber-red': '#ff003c',
+      },
+      fontFamily: {
+      },
     },
+  },
 
-    plugins: [],
+  plugins: [],
 };
-
-export default config;
