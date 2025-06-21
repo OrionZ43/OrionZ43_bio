@@ -1,10 +1,11 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
+    import { base } from '$app/paths';
 </script>
 
 <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
     <div class="lg:col-span-2 art-container" in:fade={{ duration: 1000, delay: 200 }}>
-        <img src="/OrionZ43_bio/orion_z43_art.PNG" alt="Арт персонажа Orion_Z43" class="max-w-full h-auto drop-shadow-glow" />
+        <img src="{base}/orion_z43_art.png" alt="Арт персонажа Orion_Z43" class="max-w-full h-auto drop-shadow-glow" />
 
         <div class="mt-8 text-center w-full">
             <h3 class="info-title">//: ОТКРЫТЫЕ КАНАЛЫ СВЯЗИ</h3>
@@ -59,6 +60,35 @@
 <style>
     .art-container {
         @apply flex flex-col items-center;
+        perspective: 1000px;
+    }
+
+    .art-container img {
+        clip-path: polygon(0 20px, 20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        border: 2px solid rgba(252, 238, 10, 0.3);
+        animation: breathe 5s ease-in-out infinite;
+        transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .art-container:hover img {
+        transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+        filter: drop-shadow(0 10px 30px rgba(252, 238, 10, 0.8));
+        animation-play-state: paused;
+    }
+
+    @keyframes breathe {
+        0% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 15px var(--cyber-yellow, #fcee0a));
+        }
+        50% {
+            transform: scale(1.02);
+            filter: drop-shadow(0 0 25px var(--cyber-yellow, #fcee0a));
+        }
+        100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 15px var(--cyber-yellow, #fcee0a));
+        }
     }
 
     .drop-shadow-glow {

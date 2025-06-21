@@ -1,112 +1,127 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
     import Lightbox from './Lightbox.svelte';
+    import { base } from '$app/paths';
 
-    const artworks = [
+    interface ArtworkData {
+        src_path: string;
+        alt: string;
+        title: string;
+    }
+
+    const artworks_data: ArtworkData[] = [
     {
-        src: '/OrionZ43_bio/static/gallery/z43_official.jpg',
+        src_path: '/gallery/z43_official.jpg',
         alt: 'Orion Z43 в динамичной позе с оружием на фоне неоновых надписей',
         title: 'Модель Z43'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/combat_stance.jpg',
+        src_path: '/gallery/combat_stance.jpg',
         alt: 'Orion Z43 с плазменной винтовкой в боевой стойке в руинах',
         title: 'Боевая готовность'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/ninja_bridge.jpg',
+        src_path: '/gallery/ninja_bridge.jpg',
         alt: 'Orion Z43 в одежде ниндзя с катаной на мосту в лесу с розовыми деревьями',
         title: 'Тень на мосту'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/black_hole.jpg',
+        src_path: '/gallery/black_hole.jpg',
         alt: 'Два протогена, Orion Z43 и другой, сидят в космосе на фоне черной дыры',
         title: 'Горизонт событий'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/z43_canon.jpg',
+        src_path: '/gallery/z43_canon.jpg',
         alt: 'Протоген Orion Z43 в полный рост со светящимися элементами на фоне эмблемы Z43',
         title: 'Каноничный вид Ориона'
     },
 
     {
-        src: '/OrionZ43_bio/static/gallery/halloween_pumpkin_scary.jpg',
+        src_path: '/gallery/halloween_pumpkin_scary.jpg',
         alt: 'Orion Z43 со зловещей ухмылкой на визоре держит резную тыкву на Хэллоуин',
         title: 'Сладость или гадость? >:3'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/halloween_witch.jpg',
+        src_path: '/gallery/halloween_witch.jpg',
         alt: 'Orion Z43 в ведьминской шляпе с тыквой и дроном-помощником',
         title: 'Колдовской вечер'
     },
 
     {
-        src: '/OrionZ43_bio/static/gallery/mew_cuddle.jpg',
+        src_path: '/gallery/mew_cuddle.jpg',
         alt: 'Покемон Мью трется о щеку протогена Orion Z43 на фоне звездного неба',
         title: 'Звездный друг'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/in_a_box.jpg',
+        src_path: '/gallery/in_a_box.jpg',
         alt: 'Orion Z43 держит коробку с маленькими существами',
         title: 'На переработку.'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/beach_fun.jpg',
+        src_path: '/gallery/beach_fun.jpg',
         alt: 'Orion Z43 играет на пляже с водяным пистолетом',
         title: 'Водные процедуры'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/sand_castle.jpg',
+        src_path: '/gallery/sand_castle.jpg',
         alt: 'Orion Z43 строит замок из песка на пляже вместе с маленьким другом',
         title: 'Песчаная крепость'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/moth_hug.jpg',
+        src_path: '/gallery/moth_hug.jpg',
         alt: 'Orion Z43 обнимает антропоморфного мотылька',
         title: 'Теплые объятия'
     },
 
     {
-        src: '/OrionZ43_bio/static/gallery/anubis.jpg',
+        src_path: '/gallery/anubis.jpg',
         alt: 'Orion Z43 в образе древнеегипетского бога Анубиса',
         title: 'Наследие Древних'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/king_on_hummer.jpg',
+        src_path: '/gallery/king_on_hummer.jpg',
         alt: 'Orion Z43 в короне сидит на капоте Хаммера',
         title: '42 братуха'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/portrait_hexagon.jpg',
+        src_path: '/gallery/portrait_hexagon.jpg',
         alt: 'Портрет-бюст Orion Z43 в шестиугольной рамке',
         title: 'Идентификация'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/chibi_butterfly.jpg',
+        src_path: '/gallery/chibi_butterfly.jpg',
         alt: 'Чиби-версия Orion Z43 сидит на траве с бабочкой на визоре',
         title: 'Минута покоя'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/tongue_out.jpg',
+        src_path: '/gallery/tongue_out.jpg',
         alt: 'Портрет Orion Z43 с высунутым кибернетическим языком на фоне зеленого дыма',
         title: 'Видал какой длинный? Язык тоже кстати.'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/chibi_stance.jpg',
+        src_path: '/gallery/chibi_stance.jpg',
         alt: 'Чиби-версия Orion Z43 в боевой стойке',
         title: 'Мини-угроза'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/fluffy_sketch.jpg',
+        src_path: '/gallery/fluffy_sketch.jpg',
         alt: 'Пушистый и мускулистый скетч протогена',
         title: 'Гигачад'
     },
     {
-        src: '/OrionZ43_bio/static/gallery/wine_relax.jpg',
+        src_path: '/gallery/wine_relax.jpg',
         alt: 'Orion Z43 отдыхает с бокалом вина',
         title: 'Чилл'
     }
 ];
+
+    const artworks = artworks_data.map((art) => ({
+        ...art,
+        src: `${base}${art.src_path}`,
+        src_path: art.src_path,
+        alt: art.alt,
+        title: art.title
+    }));
 
     let selectedImage: string | null = null;
 </script>
@@ -117,7 +132,7 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {#each artworks as art, i}
+        {#each artworks as art, i (art.src)}
             <div
                 class="gallery-item"
                 on:click={() => selectedImage = art.src}

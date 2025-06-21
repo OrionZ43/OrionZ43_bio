@@ -12,7 +12,7 @@
         in:fly={{ y: 50, duration: 800 }}
     >
         <div class="preview-container">
-                <img src="/OrionZ43_bio/static/gallery/protomap_preview.png" alt="Превью проекта ProtoMap" />
+                <img src="{base}/gallery/protomap_preview.png" alt="Превью проекта ProtoMap" />
         </div>
 
         <!-- Правая часть с описанием -->
