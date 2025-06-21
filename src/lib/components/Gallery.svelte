@@ -1,109 +1,108 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
     import Lightbox from './Lightbox.svelte';
-    import { base } from '$app/paths';
 
     const artworks = [
     {
-        src: '${base}/gallery/z43_official.jpg',
+        src: '/gallery/z43_official.jpg',
         alt: 'Orion Z43 в динамичной позе с оружием на фоне неоновых надписей',
         title: 'Модель Z43'
     },
     {
-        src: '${base}/gallery/combat_stance.jpg',
+        src: '/gallery/combat_stance.jpg',
         alt: 'Orion Z43 с плазменной винтовкой в боевой стойке в руинах',
         title: 'Боевая готовность'
     },
     {
-        src: '${base}/gallery/ninja_bridge.jpg',
+        src: '/gallery/ninja_bridge.jpg',
         alt: 'Orion Z43 в одежде ниндзя с катаной на мосту в лесу с розовыми деревьями',
         title: 'Тень на мосту'
     },
     {
-        src: '${base}/gallery/black_hole.jpg',
+        src: '/gallery/black_hole.jpg',
         alt: 'Два протогена, Orion Z43 и другой, сидят в космосе на фоне черной дыры',
         title: 'Горизонт событий'
     },
     {
-        src: '${base}/gallery/z43_canon.jpg',
+        src: '/gallery/z43_canon.jpg',
         alt: 'Протоген Orion Z43 в полный рост со светящимися элементами на фоне эмблемы Z43',
         title: 'Каноничный вид Ориона'
     },
 
     {
-        src: '${base}/gallery/halloween_pumpkin_scary.jpg',
+        src: '/gallery/halloween_pumpkin_scary.jpg',
         alt: 'Orion Z43 со зловещей ухмылкой на визоре держит резную тыкву на Хэллоуин',
         title: 'Сладость или гадость? >:3'
     },
     {
-        src: '${base}/gallery/halloween_witch.jpg',
+        src: '/gallery/halloween_witch.jpg',
         alt: 'Orion Z43 в ведьминской шляпе с тыквой и дроном-помощником',
         title: 'Колдовской вечер'
     },
 
     {
-        src: '${base}/gallery/mew_cuddle.jpg',
+        src: '/gallery/mew_cuddle.jpg',
         alt: 'Покемон Мью трется о щеку протогена Orion Z43 на фоне звездного неба',
         title: 'Звездный друг'
     },
     {
-        src: '${base}/gallery/in_a_box.jpg',
+        src: '/gallery/in_a_box.jpg',
         alt: 'Orion Z43 держит коробку с маленькими существами',
         title: 'На переработку.'
     },
     {
-        src: '${base}/gallery/beach_fun.jpg',
+        src: '/gallery/beach_fun.jpg',
         alt: 'Orion Z43 играет на пляже с водяным пистолетом',
         title: 'Водные процедуры'
     },
     {
-        src: '${base}/gallery/sand_castle.jpg',
+        src: '/gallery/sand_castle.jpg',
         alt: 'Orion Z43 строит замок из песка на пляже вместе с маленьким другом',
         title: 'Песчаная крепость'
     },
     {
-        src: '${base}/gallery/moth_hug.jpg',
+        src: '/gallery/moth_hug.jpg',
         alt: 'Orion Z43 обнимает антропоморфного мотылька',
         title: 'Теплые объятия'
     },
 
     {
-        src: '${base}/gallery/anubis.jpg',
+        src: '/gallery/anubis.jpg',
         alt: 'Orion Z43 в образе древнеегипетского бога Анубиса',
         title: 'Наследие Древних'
     },
     {
-        src: '${base}/gallery/king_on_hummer.jpg',
+        src: '/gallery/king_on_hummer.jpg',
         alt: 'Orion Z43 в короне сидит на капоте Хаммера',
         title: '42 братуха'
     },
     {
-        src: '${base}/gallery/portrait_hexagon.jpg',
+        src: '/gallery/portrait_hexagon.jpg',
         alt: 'Портрет-бюст Orion Z43 в шестиугольной рамке',
         title: 'Идентификация'
     },
     {
-        src: '${base}/gallery/chibi_butterfly.jpg',
+        src: '/gallery/chibi_butterfly.jpg',
         alt: 'Чиби-версия Orion Z43 сидит на траве с бабочкой на визоре',
         title: 'Минута покоя'
     },
     {
-        src: '${base}/gallery/tongue_out.jpg',
+        src: '/gallery/tongue_out.jpg',
         alt: 'Портрет Orion Z43 с высунутым кибернетическим языком на фоне зеленого дыма',
         title: 'Видал какой длинный? Язык тоже кстати.'
     },
     {
-        src: '${base}/gallery/chibi_stance.jpg',
+        src: '/gallery/chibi_stance.jpg',
         alt: 'Чиби-версия Orion Z43 в боевой стойке',
         title: 'Мини-угроза'
     },
     {
-        src: '${base}/gallery/fluffy_sketch.jpg',
+        src: '/gallery/fluffy_sketch.jpg',
         alt: 'Пушистый и мускулистый скетч протогена',
         title: 'Гигачад'
     },
     {
-        src: '${base}/gallery/wine_relax.jpg',
+        src: '/gallery/wine_relax.jpg',
         alt: 'Orion Z43 отдыхает с бокалом вина',
         title: 'Чилл'
     }

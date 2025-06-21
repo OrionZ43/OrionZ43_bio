@@ -1,11 +1,10 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
-    import { base } from '$app/paths';
 </script>
 
 <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
     <div class="lg:col-span-2 art-container" in:fade={{ duration: 1000, delay: 200 }}>
-        <img src="${base}/orion_z43_art.PNG" alt="Арт персонажа Orion_Z43" class="max-w-full h-auto drop-shadow-glow" />
+        <img src="/OrionZ43_bio/orion_z43_art.PNG" alt="Арт персонажа Orion_Z43" class="max-w-full h-auto drop-shadow-glow" />
 
         <div class="mt-8 text-center w-full">
             <h3 class="info-title">//: ОТКРЫТЫЕ КАНАЛЫ СВЯЗИ</h3>
