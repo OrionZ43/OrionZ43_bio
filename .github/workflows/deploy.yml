@@ -26,9 +26,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        paths: {
-          base: '/OrionZ43_bio'
-        }
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
