@@ -1,95 +1,178 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { slide, fade } from 'svelte/transition';
-    let isMenuOpen = false;
+    import GlitchText from './GlitchText.svelte';
+    // Импортируем стор языка
+    import { currentLang, toggleLanguage } from '$lib/stores/language';
 
-    function scrollTo(selector: string) {
-        const element = document.querySelector(selector);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-        isMenuOpen = false;
-    }
+    // --- ЛОГИКА СКРОЛЛА И АКТИВНОЙ СЕКЦИИ ---
+    let isScrolled = false;
+    let activeSection = 'dossier';
+    let isMobileMenuOpen = false;
 
-    function handleClickOutside(event: MouseEvent) {
-        const nav = document.querySelector('nav');
-        if (nav && !nav.contains(event.target as Node)) {
-            isMenuOpen = false;
-        }
-    }
+    // Реактивный массив пунктов меню (меняется при смене языка)
+    $: navItems = [
+        { id: 'dossier', label: $currentLang === 'ru' ? 'ДОСЬЕ' : 'DOSSIER' },
+        { id: 'gallery', label: $currentLang === 'ru' ? 'АРХИВ' : 'VISUALS' },
+        { id: 'projects', label: $currentLang === 'ru' ? 'ПРОЕКТЫ' : 'MISSIONS' },
+        { id: 'contact', label: $currentLang === 'ru' ? 'СВЯЗЬ' : 'UPLINK' }
+    ];
 
     onMount(() => {
-        window.addEventListener('click', handleClickOutside);
-        return () => {
-            window.removeEventListener('click', handleClickOutside);
+        const handleScroll = () => {
+            isScrolled = window.scrollY > 20;
+
+            // Определение активной секции
+            const sections = navItems.map(item => document.getElementById(item.id));
+            const scrollPosition = window.scrollY + 150; // Смещение для точности
+
+            for (const section of sections) {
+                if (section &&
+                    section.offsetTop <= scrollPosition &&
+                    (section.offsetTop + section.offsetHeight) > scrollPosition) {
+                    activeSection = section.id;
+                }
+            }
         };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     });
+
+    function scrollTo(id: string) {
+        const el = document.getElementById(id);
+        if (el) {
+            // Учитываем высоту навбара при скролле
+            const y = el.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+        isMobileMenuOpen = false;
+    }
 </script>
 
-<nav class="fixed top-0 left-0 right-0 z-50 p-4 font-mono text-sm bg-black/30 backdrop-blur-lg border-b border-gray-500/20">
-    <div class="container mx-auto flex justify-between items-center">
-        <button on:click={() => scrollTo('#dossier')} class="logo glitch-text" data-text="ORION_Z43">ORION_Z43</button>
+<!-- ГЛАВНЫЙ КОНТЕЙНЕР (Плавающий) -->
+<nav
+    class="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out px-4
+    {isScrolled ? 'pt-4' : 'pt-6'}"
+>
+    <div
+        class="w-full max-w-6xl bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-cyan/5 transition-all duration-500 relative overflow-hidden flex justify-between items-center
+        {isScrolled ? 'py-3 px-6' : 'py-4 px-8'}"
+    >
+        <!-- Декоративная линия сверху (сканер) -->
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan/50 to-transparent opacity-50 pointer-events-none"></div>
 
-        <div class="hidden md:flex space-x-6 nav-links">
-            <button on:click={() => scrollTo('#dossier')}>//:ДОСЬЕ</button>
-            <button on:click={() => scrollTo('#gallery')}>//:ГАЛЕРЕЯ</button>
-            <button on:click={() => scrollTo('#projects')}>//:ПРОЕКТЫ</button>
-            <button on:click={() => scrollTo('#contact')}>//:СВЯЗЬ</button>
+        <!-- 1. LOGO -->
+        <button
+            on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            class="relative group z-20 flex items-center gap-2 shrink-0"
+        >
+            <div class="w-2 h-2 bg-cyan rounded-full animate-pulse shadow-[0_0_10px_#00f0ff]"></div>
+            <GlitchText text="ORION_Z43" size="text-lg md:text-xl" color="text-white" />
+        </button>
+
+        <!-- 2. DESKTOP MENU -->
+        <div class="hidden md:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5 absolute left-1/2 -translate-x-1/2">
+            {#each navItems as item}
+                <button
+                    on:click={() => scrollTo(item.id)}
+                    class="relative px-5 py-2 rounded-full text-xs font-mono font-bold tracking-widest transition-all duration-300
+                    {activeSection === item.id ? 'text-black' : 'text-gray-400 hover:text-white'}"
+                >
+                    <!-- Активный фон (бегающая капсула) -->
+                    {#if activeSection === item.id}
+                        <div
+                            class="absolute inset-0 bg-cyan rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                            in:fade={{ duration: 200 }}
+                            out:fade={{ duration: 200 }}
+                        ></div>
+                    {/if}
+
+                    <span class="relative z-10">{item.label}</span>
+                </button>
+            {/each}
         </div>
 
-        <div class="md:hidden">
-            <button on:click={() => isMenuOpen = !isMenuOpen} class="burger-btn" aria-label="Открыть меню">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <!-- 3. RIGHT SIDE: LANG & STATUS -->
+        <div class="flex items-center gap-4">
+
+            <!-- LANG TOGGLE (DESKTOP) -->
+            <button
+                on:click={toggleLanguage}
+                class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded hover:border-cyan/50 transition-all group"
+                aria-label="Switch Language"
+            >
+                <span class="text-[10px] font-bold font-mono transition-colors" class:text-white={$currentLang === 'ru'} class:text-gray-600={$currentLang === 'en'}>RU</span>
+                <span class="text-[10px] text-gray-700">/</span>
+                <span class="text-[10px] font-bold font-mono transition-colors" class:text-white={$currentLang === 'en'} class:text-gray-600={$currentLang === 'ru'}>EN</span>
+            </button>
+
+            <!-- STATUS WIDGET (Desktop only) -->
+            <div class="hidden lg:flex flex-col items-end text-[10px] font-mono leading-tight text-gray-500 border-l border-white/10 pl-4">
+                <div class="flex items-center gap-1">
+                    <span>NET:</span>
+                    <span class="text-cyan">SECURE</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span>LOC:</span>
+                    <span class="text-purple">EARTH</span>
+                </div>
+            </div>
+
+            <!-- MOBILE HAMBURGER -->
+            <button
+                class="md:hidden text-white p-2 relative z-20"
+                on:click={() => isMobileMenuOpen = !isMobileMenuOpen}
+                aria-label="Menu"
+            >
+                <div class="w-6 h-5 flex flex-col justify-between items-end">
+                    <span class="w-full h-0.5 bg-white transition-all {isMobileMenuOpen ? 'rotate-45 translate-y-2.5 bg-cyan' : ''}"></span>
+                    <span class="w-3/4 h-0.5 bg-white transition-all {isMobileMenuOpen ? 'opacity-0' : ''}"></span>
+                    <span class="w-full h-0.5 bg-white transition-all {isMobileMenuOpen ? '-rotate-45 -translate-y-2 bg-cyan' : ''}"></span>
+                </div>
             </button>
         </div>
     </div>
-
-    {#if isMenuOpen}
-        <div
-            class="mobile-menu md:hidden mt-4 pt-4 border-t border-gray-500/20"
-            transition:slide={{ duration: 300, axis: 'y' }}
-        >
-            <button on:click={() => scrollTo('#dossier')} class="mobile-menu-link">//:ДОСЬЕ</button>
-            <button on:click={() => scrollTo('#gallery')} class="mobile-menu-link">//:ГАЛЕРЕЯ</button>
-            <button on:click={() => scrollTo('#projects')} class="mobile-menu-link">//:ПРОЕКТЫ</button>
-            <button on:click={() => scrollTo('#contact')} class="mobile-menu-link">//:СВЯЗЬ</button>
-        </div>
-    {/if}
 </nav>
 
+<!-- MOBILE FULLSCREEN MENU -->
+{#if isMobileMenuOpen}
+    <div
+        class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
+        transition:fade={{ duration: 300 }}
+    >
+        <!-- Фоновая графика -->
+        <div class="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Links -->
+        {#each navItems as item, i}
+            <button
+                on:click={() => scrollTo(item.id)}
+                class="text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 hover:from-cyan hover:to-white transition-all duration-300 uppercase"
+                in:slide={{ delay: i * 50, duration: 400 }}
+            >
+                {item.label}
+            </button>
+        {/each}
+
+        <!-- Lang Toggle Mobile -->
+        <button
+            on:click={toggleLanguage}
+            class="mt-8 px-6 py-2 border border-white/20 rounded-full font-mono text-cyan hover:bg-cyan/10 transition-colors"
+        >
+            LANGUAGE: <span class="font-bold text-white">{$currentLang.toUpperCase()}</span>
+        </button>
+
+        <div class="absolute bottom-10 text-xs font-mono text-gray-600">
+            // SYSTEM NAVIGATION //
+        </div>
+    </div>
+{/if}
+
 <style>
-    nav {
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-    .logo {
-        @apply text-lg font-bold uppercase tracking-widest cursor-pointer;
-        color: var(--cyber-yellow, #fcee0a);
-        text-shadow: 0 0 5px var(--cyber-yellow, #fcee0a);
-    }
-
-    .nav-links button {
-        @apply uppercase tracking-wider text-gray-400;
-        transition: all 0.2s ease-in-out;
-    }
-    .nav-links button:hover {
-        color: var(--cyber-yellow, #fcee0a);
-        text-shadow: 0 0 8px var(--cyber-yellow, #fcee0a);
-        transform: translateY(-2px);
-    }
-
-    .burger-btn {
-        @apply p-2 text-gray-300 hover:text-cyber-yellow transition-colors;
-    }
-
-    .mobile-menu {
-        @apply flex flex-col items-center space-y-2;
-    }
-    .mobile-menu-link {
-        @apply w-full text-center py-3 uppercase tracking-wider text-gray-300 rounded-md;
-        transition: background-color 0.2s, color 0.2s;
-    }
-    .mobile-menu-link:hover {
-        background-color: rgba(252, 238, 10, 0.1);
-        color: var(--cyber-yellow, #fcee0a);
+    button {
+        -webkit-tap-highlight-color: transparent;
     }
 </style>
