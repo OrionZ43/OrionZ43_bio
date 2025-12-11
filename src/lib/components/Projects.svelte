@@ -3,7 +3,6 @@
     import { base } from '$app/paths';
     import SpotlightCard from './SpotlightCard.svelte';
 
-    // Технический стек в виде массива для красивого рендера
     const techStack = [
         { name: 'SvelteKit', type: 'CORE' },
         { name: 'Tailwind CSS', type: 'STYLE' },
@@ -16,7 +15,6 @@
 
 <div class="relative z-10">
 
-    <!-- ЗАГОЛОВОК -->
     <div class="mb-12 border-b border-white/10 pb-6">
         <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 bg-purple rounded-sm animate-pulse"></span>
@@ -27,23 +25,17 @@
         </h2>
     </div>
 
-    <!-- PROJECT CARD: PROTOMAP -->
     <SpotlightCard>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-panel/40 backdrop-blur-md rounded-xl overflow-hidden">
 
-            <!-- LEFT: PREVIEW (MONITOR STYLE) -->
             <div class="relative group h-64 lg:h-auto overflow-hidden bg-black border-r border-white/5">
-                <!-- Image -->
                 <img
                     src="{base}/gallery/protomap_preview.png"
                     alt="ProtoMap Interface"
                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
 
-                <!-- Overlay Grid -->
                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBWMGg0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
-
-                <!-- Status Badge on Image -->
                 <div class="absolute top-4 left-4">
                     <div class="px-3 py-1 bg-black/70 backdrop-blur border border-green-500/50 rounded flex items-center gap-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -51,11 +43,9 @@
                     </div>
                 </div>
 
-                <!-- Hover Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <!-- RIGHT: INFO & TECH -->
             <div class="p-6 md:p-10 flex flex-col justify-between">
 
                 <div>
@@ -68,7 +58,6 @@
                         Веб-приложение для объединения сообщества протогенов. Глобальная система трекинга, позволяющая регистрировать сигнатуры, отмечать геолокацию на карте мира, кастомизировать профили и устанавливать защищенные каналы связи. Выполнено в уникальной киберпанк-эстетике.
                     </p>
 
-                    <!-- TECH STACK GRID -->
                     <div class="mb-8">
                         <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-3">System Architecture:</span>
                         <div class="flex flex-wrap gap-2">
@@ -82,7 +71,6 @@
                     </div>
                 </div>
 
-                <!-- ACTIONS -->
                 <div class="flex flex-wrap gap-4 pt-6 border-t border-white/5">
                     <a
                         href="https://proto-map.vercel.app"

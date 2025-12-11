@@ -4,10 +4,8 @@
     import SpotlightCard from './SpotlightCard.svelte';
     import DecryptText from './DecryptText.svelte';
 
-    // Создаем диспетчер событий для общения с родительским компонентом (+page.svelte)
     const dispatch = createEventDispatcher();
 
-    // --- ЛОГИКА 3D TILT ЭФФЕКТА ---
     let card: HTMLElement;
 
     function handleTilt(e: MouseEvent) {
@@ -18,7 +16,6 @@
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        // Вычисляем угол поворота (максимум 10 градусов)
         const rotateX = ((y - centerY) / centerY) * -10;
         const rotateY = ((x - centerX) / centerX) * 10;
 
@@ -33,14 +30,11 @@
 
 <div class="w-full max-w-7xl mx-auto p-4 relative z-10">
 
-    <!-- === 1. HEADER SECTION (TYPOGRAPHY) === -->
     <div class="mb-12 text-center md:text-left relative">
-        <!-- Декоративный фоновый текст "Z43" (Watermark) -->
         <div class="absolute -top-10 -left-10 text-[150px] font-display font-bold text-white/5 pointer-events-none select-none -z-10 hidden md:block">
             Z43
         </div>
 
-        <!-- Технический бейдж -->
         <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
             <span class="text-cyan font-mono text-xs tracking-[0.3em] uppercase opacity-70">Project_ID:</span>
             <div class="px-2 py-0.5 bg-cyan/10 border border-cyan/40 rounded text-cyan font-mono text-xs font-bold shadow-[0_0_10px_rgba(0,240,255,0.2)]">
@@ -48,14 +42,11 @@
             </div>
         </div>
 
-        <!-- ИМЯ ПЕРСОНАЖА -->
         <h1 class="font-display font-bold leading-none tracking-tighter uppercase relative z-10">
-            <!-- ORION: Белый монолит -->
             <div class="text-7xl md:text-9xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 ORION
             </div>
 
-            <!-- BINARYTHORN: Градиент симбиоза -->
             <div class="text-4xl md:text-6xl mt-[-5px] md:mt-[-15px] font-bold">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan via-white to-purple animate-gradient-x">
                     BINARYTHORN
@@ -63,18 +54,14 @@
             </div>
         </h1>
 
-        <!-- Статус -->
         <div class="flex items-center justify-center md:justify-start gap-4 text-gray-400 font-mono text-sm mt-6 pl-1">
             <span class="inline-block w-8 h-[2px] bg-purple"></span>
             <DecryptText text="SYSTEM STATUS: ROGUE // NETWORK: EARTH" speed={40} />
         </div>
     </div>
 
-    <!-- === 2. BENTO GRID SECTION === -->
-    <!-- === 2. BENTO GRID SECTION === -->
     <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-auto md:grid-rows-[300px_minmax(200px,auto)] gap-4">
 
-        <!-- CARD 1: MAIN ART (С 3D ЭФФЕКТОМ) - Без изменений -->
         <div class="col-span-1 md:col-span-2 md:row-span-2 relative h-[500px] md:h-auto group perspective-container"
              on:mousemove={handleTilt} on:mouseleave={resetTilt} role="img" aria-label="Orion Z43 Art">
 
@@ -90,22 +77,18 @@
                     <p class="text-purple text-sm drop-shadow-md bg-black/50 inline-block px-1">SYMBIOTE: <span class="text-white">ONYX</span></p>
                 </div>
 
-                <!-- Декоративные уголки -->
                 <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-cyan/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-purple/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
         </div>
 
-        <!-- CARD 2: SYSTEM STATUS (UPDATED DESIGN) -->
         <SpotlightCard>
             <div class="relative p-6 h-full flex flex-col justify-between bg-panel/50 backdrop-blur-sm overflow-hidden group">
 
-                <!-- Background Grid Animation -->
                 <div class="absolute inset-0 opacity-10"
                      style="background-image: radial-gradient(#00f0ff 1px, transparent 1px); background-size: 20px 20px;">
                 </div>
 
-                <!-- Header -->
                 <div class="flex justify-between items-start relative z-10">
                     <div>
                         <span class="text-cyan font-mono text-[10px] tracking-widest uppercase">System Integrity</span>
@@ -118,13 +101,11 @@
                     <i class="font-mono text-[10px] text-gray-500">CPU_01</i>
                 </div>
 
-                <!-- Center: Animated Ring & Number -->
                 <div class="relative flex items-center justify-center py-4">
                     <!-- Rotating Rings -->
                     <div class="absolute w-24 h-24 border-2 border-dashed border-white/10 rounded-full animate-spin-slow"></div>
                     <div class="absolute w-20 h-20 border border-cyan/20 rounded-full animate-reverse-spin"></div>
 
-                    <!-- Glitching Number -->
                     <div class="text-center relative z-10">
                         <div class="text-5xl font-bold font-display text-white group-hover:text-cyan transition-colors drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                             98<span class="text-2xl align-top">%</span>
@@ -132,13 +113,11 @@
                     </div>
                 </div>
 
-                <!-- Footer: Live Graph -->
                 <div class="relative z-10">
                     <div class="flex justify-between text-[10px] font-mono text-gray-400 mb-1">
                         <span>NEURAL_SYNC</span>
                         <span class="text-white">STABLE</span>
                     </div>
-                    <!-- Fake Graph Bars -->
                     <div class="flex items-end gap-[2px] h-6 opacity-50">
                         {#each Array(15) as _, i}
                             <div class="w-full bg-cyan transition-all duration-300 animate-equalizer"
@@ -149,24 +128,20 @@
             </div>
         </SpotlightCard>
 
-        <!-- CARD 3: WEAPONRY (Z-43) (UPDATED DESIGN) -->
         <SpotlightCard>
             <div class="relative p-6 h-full flex flex-col justify-center items-center text-center bg-panel/50 backdrop-blur-sm overflow-hidden group">
 
-                <!-- Crosshair Background -->
                 <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none transition-opacity group-hover:opacity-40">
                     <div class="w-[1px] h-full bg-purple"></div>
                     <div class="h-[1px] w-full bg-purple absolute"></div>
                     <div class="w-32 h-32 border border-purple/50 rounded-full absolute"></div>
                 </div>
 
-                <!-- Corner Brackets -->
                 <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-white/30"></div>
                 <div class="absolute top-2 right-2 w-3 h-3 border-t border-r border-white/30"></div>
                 <div class="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-white/30"></div>
                 <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-white/30"></div>
 
-                <!-- Weapon Icon / Text -->
                 <div class="relative z-10">
                     <div class="text-[10px] font-mono text-purple mb-2 tracking-[0.3em] uppercase">Weapon System</div>
                     <h3 class="text-4xl font-display font-bold text-white group-hover:text-purple transition-colors duration-300 group-hover:scale-110 transform">
@@ -177,14 +152,12 @@
                     </div>
                 </div>
 
-                <!-- Charging Bar Animation (Bottom) -->
                 <div class="absolute bottom-0 left-0 w-full h-1 bg-gray-800">
                     <div class="h-full bg-purple w-full animate-charge origin-left"></div>
                 </div>
             </div>
         </SpotlightCard>
 
-        <!-- CARD 4: LORE LOGS (Wide Card) - Без изменений, он уже хорош -->
         <div class="col-span-1 md:col-span-2 h-full">
             <SpotlightCard>
                 <div class="p-6 h-full flex flex-col bg-panel/50 backdrop-blur-sm">
@@ -221,7 +194,6 @@
 </div>
 
 <style>
-    /* Анимация градиента текста */
     .animate-gradient-x {
         background-size: 200% 200%;
         animation: gradient-move 3s ease infinite;
@@ -233,7 +205,6 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* Стилизация скроллбара внутри карточки лора */
     .scrollbar-thin::-webkit-scrollbar { width: 4px; }
     .scrollbar-thin::-webkit-scrollbar-track { background: #1a1a1a; }
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }

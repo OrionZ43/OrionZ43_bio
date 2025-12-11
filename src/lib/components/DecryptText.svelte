@@ -2,8 +2,8 @@
     import { onMount } from 'svelte';
 
     export let text: string;
-    export let speed: number = 30; // Скорость перебора
-    export let revealDelay: number = 0; // Задержка перед стартом
+    export let speed: number = 30;
+    export let revealDelay: number = 0;
     export let className: string = "";
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
@@ -28,7 +28,7 @@
                     clearInterval(interval);
                 }
 
-                iteration += 1 / 3; // Плавность открытия
+                iteration += 1 / 3;
             }, speed);
         }, revealDelay);
 

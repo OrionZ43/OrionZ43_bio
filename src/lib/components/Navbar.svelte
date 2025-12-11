@@ -2,15 +2,12 @@
     import { onMount } from 'svelte';
     import { slide, fade } from 'svelte/transition';
     import GlitchText from './GlitchText.svelte';
-    // Импортируем стор языка
     import { currentLang, toggleLanguage } from '$lib/stores/language';
 
-    // --- ЛОГИКА СКРОЛЛА И АКТИВНОЙ СЕКЦИИ ---
     let isScrolled = false;
     let activeSection = 'dossier';
     let isMobileMenuOpen = false;
 
-    // Реактивный массив пунктов меню (меняется при смене языка)
     $: navItems = [
         { id: 'dossier', label: $currentLang === 'ru' ? 'ДОСЬЕ' : 'DOSSIER' },
         { id: 'gallery', label: $currentLang === 'ru' ? 'АРХИВ' : 'VISUALS' },
@@ -22,9 +19,8 @@
         const handleScroll = () => {
             isScrolled = window.scrollY > 20;
 
-            // Определение активной секции
             const sections = navItems.map(item => document.getElementById(item.id));
-            const scrollPosition = window.scrollY + 150; // Смещение для точности
+            const scrollPosition = window.scrollY + 150;
 
             for (const section of sections) {
                 if (section &&
@@ -42,7 +38,6 @@
     function scrollTo(id: string) {
         const el = document.getElementById(id);
         if (el) {
-            // Учитываем высоту навбара при скролле
             const y = el.getBoundingClientRect().top + window.scrollY - 100;
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
@@ -50,7 +45,6 @@
     }
 </script>
 
-<!-- ГЛАВНЫЙ КОНТЕЙНЕР (Плавающий) -->
 <nav
     class="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out px-4
     {isScrolled ? 'pt-4' : 'pt-6'}"
@@ -59,10 +53,8 @@
         class="w-full max-w-6xl bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-cyan/5 transition-all duration-500 relative overflow-hidden flex justify-between items-center
         {isScrolled ? 'py-3 px-6' : 'py-4 px-8'}"
     >
-        <!-- Декоративная линия сверху (сканер) -->
         <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan/50 to-transparent opacity-50 pointer-events-none"></div>
 
-        <!-- 1. LOGO -->
         <button
             on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             class="relative group z-20 flex items-center gap-2 shrink-0"
@@ -71,7 +63,6 @@
             <GlitchText text="ORION_Z43" size="text-lg md:text-xl" color="text-white" />
         </button>
 
-        <!-- 2. DESKTOP MENU -->
         <div class="hidden md:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5 absolute left-1/2 -translate-x-1/2">
             {#each navItems as item}
                 <button
@@ -79,7 +70,6 @@
                     class="relative px-5 py-2 rounded-full text-xs font-mono font-bold tracking-widest transition-all duration-300
                     {activeSection === item.id ? 'text-black' : 'text-gray-400 hover:text-white'}"
                 >
-                    <!-- Активный фон (бегающая капсула) -->
                     {#if activeSection === item.id}
                         <div
                             class="absolute inset-0 bg-cyan rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)]"
@@ -93,10 +83,8 @@
             {/each}
         </div>
 
-        <!-- 3. RIGHT SIDE: LANG & STATUS -->
         <div class="flex items-center gap-4">
 
-            <!-- LANG TOGGLE (DESKTOP) -->
             <button
                 on:click={toggleLanguage}
                 class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded hover:border-cyan/50 transition-all group"
@@ -107,7 +95,6 @@
                 <span class="text-[10px] font-bold font-mono transition-colors" class:text-white={$currentLang === 'en'} class:text-gray-600={$currentLang === 'ru'}>EN</span>
             </button>
 
-            <!-- STATUS WIDGET (Desktop only) -->
             <div class="hidden lg:flex flex-col items-end text-[10px] font-mono leading-tight text-gray-500 border-l border-white/10 pl-4">
                 <div class="flex items-center gap-1">
                     <span>NET:</span>
@@ -119,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- MOBILE HAMBURGER -->
             <button
                 class="md:hidden text-white p-2 relative z-20"
                 on:click={() => isMobileMenuOpen = !isMobileMenuOpen}
@@ -135,18 +121,15 @@
     </div>
 </nav>
 
-<!-- MOBILE FULLSCREEN MENU -->
 {#if isMobileMenuOpen}
     <div
         class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
         transition:fade={{ duration: 300 }}
     >
-        <!-- Фоновая графика -->
         <div class="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan/5 rounded-full blur-3xl"></div>
         </div>
 
-        <!-- Links -->
         {#each navItems as item, i}
             <button
                 on:click={() => scrollTo(item.id)}
@@ -157,7 +140,6 @@
             </button>
         {/each}
 
-        <!-- Lang Toggle Mobile -->
         <button
             on:click={toggleLanguage}
             class="mt-8 px-6 py-2 border border-white/20 rounded-full font-mono text-cyan hover:bg-cyan/10 transition-colors"

@@ -1,7 +1,6 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
 
-    // Каналы связи
     const channels = [
         {
             name: 'TELEGRAM',
@@ -36,7 +35,6 @@
         }
     ];
 
-    // Special channel
     const community = {
         name: "ORION'S CORNER",
         id: 'COMMUNITY_HUB',
@@ -47,7 +45,6 @@
 
 <div class="relative z-10 w-full max-w-4xl mx-auto">
 
-    <!-- ЗАГОЛОВОК -->
     <div class="text-center mb-10">
         <div class="flex items-center justify-center gap-2 mb-2">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></span>
@@ -57,7 +54,6 @@
             Secure <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-purple">Uplink</span>
         </h2>
 
-        <!-- SIGNAL VISUALIZER (CSS Animation) -->
         <div class="flex items-center justify-center gap-1 h-8">
             {#each Array(10) as _, i}
                 <div class="w-1 bg-cyan/50 rounded-full animate-signal" style="animation-delay: {i * 0.1}s; height: {Math.random() * 100}%;"></div>
@@ -65,7 +61,6 @@
         </div>
     </div>
 
-    <!-- GRID OF LINKS -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         {#each channels as channel, i}
             <a
@@ -89,20 +84,17 @@
                     </svg>
                 </div>
 
-                <!-- Text -->
                 <div class="text-center relative z-10">
                     <h3 class="font-display font-bold text-lg text-white group-hover:tracking-wider transition-all">{channel.name}</h3>
                     <p class="font-mono text-[10px] text-gray-500 mt-1">{channel.id} // <span class="text-green-500">{channel.status}</span></p>
                 </div>
 
-                <!-- Corner Decor -->
                 <div class="absolute top-2 right-2 w-2 h-2 border-t border-r border-white/20 group-hover:border-cyan transition-colors"></div>
                 <div class="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-white/20 group-hover:border-cyan transition-colors"></div>
             </a>
         {/each}
     </div>
 
-    <!-- SPECIAL COMMUNITY LINK (Full Width) -->
     <a
         href={community.url}
         target="_blank"
@@ -132,7 +124,6 @@
 
         </div>
 
-        <!-- Scan Line Animation -->
         <div class="absolute top-0 left-0 w-[2px] h-full bg-purple shadow-[0_0_10px_#9d00ff] animate-scan-horizontal opacity-0 group-hover:opacity-100"></div>
     </a>
 

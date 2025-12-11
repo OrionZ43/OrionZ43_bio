@@ -7,19 +7,16 @@
 
     <!-- LEFT COLUMN: CHARACTER VISUAL -->
     <div class="lg:col-span-5 relative group">
-        <!-- Рамка "Монолит" -->
         <div class="absolute -inset-1 bg-gradient-to-b from-orion-cyan to-onyx-purple opacity-30 group-hover:opacity-70 blur transition duration-500"></div>
         <div class="relative bg-black p-2 clip-path-tech">
             <img src="{base}/orion_z43_art.png" alt="Orion Z43" class="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition duration-500 grayscale-[20%] group-hover:grayscale-0" />
 
-            <!-- HUD Overlay on Image -->
             <div class="absolute bottom-4 left-4 font-mono text-xs text-orion-cyan">
                 <p>SYNC RATE: <span class="text-white animate-pulse">98.4%</span></p>
                 <p>SYMBIOTE: <span class="text-onyx-purple">ONYX_ACTIVE</span></p>
             </div>
         </div>
 
-        <!-- Stats Grid -->
         <div class="mt-6 grid grid-cols-2 gap-2 font-mono text-xs">
             <div class="bg-onyx-dim border border-white/10 p-3">
                 <span class="text-gray-500 block mb-1">CLASS</span>
@@ -36,10 +33,8 @@
         </div>
     </div>
 
-    <!-- RIGHT COLUMN: LORE DATA -->
     <div class="lg:col-span-7 space-y-8">
 
-        <!-- Header -->
         <div>
             <div class="flex items-center space-x-2 text-onyx-purple mb-2">
                 <span class="animate-pulse">●</span>
@@ -54,7 +49,6 @@
             </p>
         </div>
 
-        <!-- Lore Log Tabs (Styled) -->
         <div class="space-y-6">
 
             <div class="bg-onyx-dim/50 border-l-4 border-onyx-purple p-6 hover:bg-onyx-dim transition-colors group">

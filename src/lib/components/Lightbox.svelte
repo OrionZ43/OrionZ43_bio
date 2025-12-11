@@ -12,8 +12,6 @@
         if (e.key === 'Escape') dispatch('close');
     }
 
-    // --- МАГИЯ ПОРТАЛА ---
-    // Эта функция переносит элемент прямо в <body>, игнорируя стили родителя
     function portal(node: HTMLElement) {
         let target = document.body;
         async function update() {
@@ -31,7 +29,6 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<!-- Добавляем use:portal сюда -->
 <div
     use:portal
     class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
@@ -40,14 +37,12 @@
     hidden
 >
 
-    <!-- MAIN CONTAINER -->
     <div
         class="relative max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row bg-panel border border-white/10 rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]"
         in:scale={{ start: 0.95, duration: 300 }}
         on:click|stopPropagation
     >
 
-        <!-- CLOSE BUTTON -->
         <button
             on:click={() => dispatch('close')}
             class="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-red-500/20 text-gray-400 hover:text-red-500 rounded-full border border-white/10 hover:border-red-500 transition-all"
@@ -55,12 +50,10 @@
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
 
-        <!-- IMAGE AREA -->
         <div class="w-full md:w-3/4 bg-black/50 relative flex items-center justify-center overflow-hidden group select-none">
             <!-- Grid Background -->
             <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-            <!-- Loading Spinner -->
             {#if !isLoaded}
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-10 h-10 border-2 border-cyan border-t-transparent rounded-full animate-spin"></div>
@@ -74,11 +67,9 @@
                 on:load={() => isLoaded = true}
             />
 
-            <!-- Scanline Animation (Overlay) -->
             <div class="absolute top-0 left-0 w-full h-[2px] bg-cyan/50 shadow-[0_0_20px_#00f0ff] animate-scan pointer-events-none"></div>
         </div>
 
-        <!-- INFO SIDEBAR -->
         <div class="w-full md:w-1/4 bg-panel border-l border-white/5 p-6 md:p-8 flex flex-col justify-between max-h-[40vh] md:max-h-full overflow-y-auto">
             <div>
                 <div class="flex items-center gap-2 mb-6">
