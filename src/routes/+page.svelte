@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount, tick } from 'svelte';
     import { fade, fly } from 'svelte/transition';
+    import Operator from '$lib/components/Operator.svelte';
+    import CustomCursor from '$lib/components/CustomCursor.svelte';
 
     // --- ИМПОРТ КОМПОНЕНТОВ ---
     import Navbar from '$lib/components/Navbar.svelte';
@@ -67,7 +69,7 @@
     <title>ORION_Z43 // BINARYTHORN</title>
     <meta name="description" content="Personal Dossier of Protogen Orion Z43. System status: Active." />
 </svelte:head>
-
+<CustomCursor />
 <!-- === ГЛОБАЛЬНЫЙ ФОН === -->
 <div class="fixed inset-0 z-[-1] bg-void">
     <Starfield /> <!-- Процедурные звезды -->
@@ -147,6 +149,14 @@
             <!-- SECTION 3: PROJECTS -->
             <section id="projects" class="max-w-7xl mx-auto mb-32 scroll-mt-24">
                 <Projects />
+            </section>
+
+            <!-- SEPARATOR 3 -->
+            <div class="max-w-7xl mx-auto h-px bg-gradient-to-r from-transparent via-gray-500/30 to-transparent my-20"></div>
+
+            <!-- SECTION 4: OPERATOR (IRL) -->
+            <section id="operator" class="max-w-7xl mx-auto mb-32 scroll-mt-24">
+                <Operator />
             </section>
 
             <!-- SECTION 4: CONTACT -->

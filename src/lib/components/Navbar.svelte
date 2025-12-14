@@ -12,6 +12,7 @@
         { id: 'dossier', label: $currentLang === 'ru' ? 'ДОСЬЕ' : 'DOSSIER' },
         { id: 'gallery', label: $currentLang === 'ru' ? 'АРХИВ' : 'VISUALS' },
         { id: 'projects', label: $currentLang === 'ru' ? 'ПРОЕКТЫ' : 'MISSIONS' },
+        { id: 'operator', label: $currentLang === 'ru' ? 'IRL' : 'IRL' },
         { id: 'contact', label: $currentLang === 'ru' ? 'СВЯЗЬ' : 'UPLINK' }
     ];
 
