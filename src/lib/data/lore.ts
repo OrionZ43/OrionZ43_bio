@@ -13,6 +13,7 @@ export interface ChapterContent {
 
 export interface Chapter {
     id: number;
+    soundtrack?: string;
     ru: ChapterContent;
     en: ChapterContent;
 }
@@ -20,6 +21,7 @@ export interface Chapter {
 export const loreChapters: Chapter[] = [
     {
         id: 1,
+        soundtrack: '/audio/chapter_1.mp3',
         ru: {
             title: "Глава 1: Гробница Пустоты",
             subtitle: "СЕКТОР ОМИКРОН-9 // АНОМАЛИЯ",
@@ -69,6 +71,7 @@ export const loreChapters: Chapter[] = [
     },
 {
         id: 2,
+        soundtrack: '/audio/chapter_2.mp3',
         ru: {
             title: "Глава 2: Ошибка Синхронизации",
             subtitle: "СИСТЕМНЫЙ СБОЙ // СИМБИОЗ",
@@ -132,6 +135,7 @@ export const loreChapters: Chapter[] = [
     },
 {
         id: 3,
+        soundtrack: '/audio/chapter_3.mp3',
         ru: {
             title: "Глава 3: Оружие Z-43",
             subtitle: "БОЕВОЙ ПРОТОКОЛ // УДАЛЕНИЕ ЦЕЛИ",
@@ -191,6 +195,7 @@ export const loreChapters: Chapter[] = [
     },
 {
         id: 4,
+        soundtrack: '/audio/chapter_4.mp3',
         ru: {
             title: "Глава 4: Бегство и Имя",
             subtitle: "СЕКТОР ЗЕМЛЯ // НОВАЯ ЛИЧНОСТЬ",
@@ -252,6 +257,7 @@ export const loreChapters: Chapter[] = [
     },
 {
         id: 5,
+        soundtrack: '/audio/chapter_5.mp3',
         ru: {
             title: "Глава 5: Тени Сектора 7",
             subtitle: "ВЫЖИВАНИЕ // НОВЫЙ КОНТРАКТ",
@@ -335,4 +341,172 @@ export const loreChapters: Chapter[] = [
             ]
         }
     },
+{
+        id: 6,
+        soundtrack: '/audio/chapter_6.mp3',
+        ru: {
+            title: "Глава 6: Призраки в машинах",
+            subtitle: "ЗАВОД «ТИТАН-4» // КЛИНОК ПУСТОТЫ",
+            blocks: [
+                { type: 'text', content: "Завод «Титан-4» умер полвека назад. Его гигантские цеха, похожие на ребра мертвого левиафана, торчали из ядовитого тумана на окраине Сектора 7. Местные обходили это место стороной. Говорили, что автоматика там сошла с ума." },
+                { type: 'text', content: "Орион проскользнул в разбитые ворота, стараясь не шуметь. Его сердце билось ровно, но адреналин уже начинал поступать в кровь, предвкушая опасность." },
+                { type: 'orion', content: "— Цель на минус втором уровне. Серверная комната. Нам нужно забрать жесткий диск с прототипами." },
+                { type: 'onyx', content: "\"Здесь тихо. Слишком тихо для места, где, по слухам, обитают «призраки». Я не фиксирую тепловых сигнатур.\"" },
+                { type: 'orion', content: "— Может, они спят?" },
+                { type: 'onyx', content: "\"Машины не спят, Орион. Они ждут.\"" },
+                { type: 'text', content: "Они спустились в темноту. Визор Ориона работал в режиме ночного видения, окрашивая мир в зеленые и серые тона. Под ногами хрустело стекло и старые микросхемы." },
+                { type: 'text', content: "Когда они вошли в главный сборочный цех, свет визора выхватил странные конструкции. С потолка свисали провода, сплетенные в подобие паутины. А в центре стоял алтарь. Из кучи металлолома была собрана грубая фигура, напоминающая человека. Перед ней лежали черепа — и органические, и металлические." },
+                { type: 'onyx', content: "\"Внимание. Движение по периметру. Множественные цели. Это не призраки. Это Падальщики.\"" },
+                { type: 'text', content: "Вокруг, из темных углов, начали загораться красные огоньки сенсоров. Один за другим из тени выходили роботы. Старые, ржавые промышленные дроиды, которые сами себя «чинили», приваривая к своим корпусам куски других машин и... кости. Они двигались рывками, издавая жуткий скрежет." },
+                { type: 'orion', content: "— Их слишком много!" },
+                { type: 'text', content: "Орион попятился, но путь назад перегородил огромный погрузчик с приваренными циркулярными пилами." },
+                { type: 'orion', content: "— Оникс, Z-43?" },
+                { type: 'onyx', content: "\"Отрицательно. Выстрел из пушки в замкнутом пространстве обрушит потолок, и мы будем погребены заживо. К тому же, ты слишком голоден для Артиллерии. Придется работать в ближнем бою.\"" },
+                { type: 'orion', content: "— У меня нет оружия!" },
+                { type: 'text', content: "Он увернулся от прыжка первого дроида. Ржавые когти проскрежетали по его наплечнику." },
+                { type: 'onyx', content: "\"У тебя есть я. И у нас есть память о клинке. Дай мне руку.\"" },
+                { type: 'text', content: "Орион инстинктивно выставил вперед правую руку. В этот раз трансформации в пушку не произошло. Черная нано-материя просто потекла к его кисти, затвердевая и удлиняясь." },
+                { type: 'code', content: ">> ИНИЦИАЛИЗАЦИЯ: VOID_BLADE [КЛИНОК ПУСТОТЫ]\n>> СТАТУС: АКТИВЕН" },
+                { type: 'text', content: "С тихим, вибрирующим гулом из его кулака вырос длинный, идеально черный клинок. Он был чуть изогнут, как катана, но по его лезвию бежали те же фиолетовые глитчи, что и в глазах Оникса. Орион выдохнул — меч почти ничего не весил." },
+                { type: 'text', content: "Погрузчик с пилами заревел и бросился в атаку. Орион не думал — Оникс управлял его мышцами, рассчитывая траекторию. Он сделал шаг вперед, нырнул под вращающуюся пилу и нанес удар снизу вверх." },
+                { type: 'text', content: "Звука удара металла о металл не было. Черный клинок прошел сквозь толстую сталь погрузчика, как горячий нож сквозь масло. Молекулярные связи просто распались в месте разреза. Огромный робот замер, а через секунду развалился на две идеально ровные половины. Срезы светились фиолетовым." },
+                { type: 'orion', content: "— Эффективно." },
+                { type: 'onyx', content: "\"Не отвлекайся. Слева!\"" },
+                { type: 'text', content: "Бой превратился в танец. Орион крутился волчком, разрубая ржавых дроидов на куски. Клинок Пустоты не встречал сопротивления. Он резал гидравлику, броню и бетонные колонны. Но усталость накапливалась. Каждый взмах меча требовал концентрации и калорий." },
+                { type: 'text', content: "Когда последний дроид рухнул грудой металлолома, клинок втянулся обратно в руку. Орион упал на колени, жадно глотая затхлый воздух." },
+                { type: 'system', content: "АНАЛИЗ СОСТОЯНИЯ:\n> ПУЛЬС: 180 уд/мин\n> УРОВЕНЬ ГЛЮКОЗЫ: КРИТИЧЕСКИ НИЗКИЙ" },
+                { type: 'onyx', content: "\"Мы живы. И серверная прямо перед нами.\"" },
+                { type: 'text', content: "Орион поднял голову. Дверь в серверную была вскрыта. Внутри, на терминале, лежал тот самый диск." },
+                { type: 'orion', content: "— Слишком легко... Эти роботы... они охраняли не диск. Они охраняли что-то другое." },
+                { type: 'text', content: "Он забрал диск. На выходе из завода он остановился у ларька с едой и на все деньги от аванса купил три бургера, проглотив их почти не жуя." },
+                { type: 'onyx', content: "\"Мы неплохая команда, Байнариторн. Ты даешь ярость, я даю точность.\"" },
+                { type: 'orion', content: "— А еще ты даешь мне зверский аппетит. Надеюсь, заказчик заплатит достаточно." },
+                { type: 'text', content: "Где-то на крыше соседнего здания за ними наблюдал дрон с эмблемой, которую Орион не заметил. Эмблема была похожа на стилизованное солнце. Гелиос. Охота началась." }
+            ]
+        },
+        en: {
+            title: "Chapter 6: Ghosts in the Machines",
+            subtitle: "TITAN-4 PLANT // VOID BLADE",
+            blocks: [
+                { type: 'text', content: "The Titan-4 plant died half a century ago. Its giant workshops, resembling the ribs of a dead leviathan, jutted out from the toxic fog on the outskirts of Sector 7. Locals avoided this place; rumors said the automation there had gone insane." },
+                { type: 'text', content: "Orion slipped through the shattered gates, trying to remain silent. His heart beat steadily, but adrenaline was already beginning to seep into his blood, anticipating danger." },
+                { type: 'orion', content: "— Target is on level minus two. Server room. We need to retrieve the hard drive with the prototypes." },
+                { type: 'onyx', content: "\"It is quiet here,\" Onyx noted. \"Too quiet for a place where 'ghosts' are rumored to dwell. I am not detecting any thermal signatures.\"" },
+                { type: 'orion', content: "— Maybe they’re asleep?" },
+                { type: 'onyx', content: "\"Machines do not sleep, Orion. They wait.\"" },
+                { type: 'text', content: "They descended into the darkness. Orion's visor operated in night vision mode, painting the world in shades of green and gray. Glass and old microchips crunched beneath his feet." },
+                { type: 'text', content: "When they entered the main assembly hall, the visor's light caught strange structures. Wires hung from the ceiling, woven into something resembling spiderwebs. And in the center stood an altar. A crude figure resembling a human had been assembled from a pile of scrap metal. Before it lay skulls—both organic and metallic." },
+                { type: 'onyx', content: "\"Warning. Perimeter movement. Multiple targets. These are not ghosts. They are Scavengers.\"" },
+                { type: 'text', content: "Around them, red sensor lights began to ignite from the dark corners. One by one, robots emerged from the shadows. Old, rusty industrial droids that 'repaired' themselves by welding pieces of other machines and... bones to their chassis. They moved in jerks, emitting a gruesome screeching sound." },
+                { type: 'orion', content: "— There are too many of them!" },
+                { type: 'text', content: "Orion backed away, but the way back was blocked by a massive forklift equipped with welded circular saws." },
+                { type: 'orion', content: "— Onyx, Z-43?" },
+                { type: 'onyx', content: "\"Negative. Firing the cannon in a confined space will collapse the ceiling, and we will be buried alive. Besides, you are too hungry for Artillery. We must engage in close quarters.\"" },
+                { type: 'orion', content: "— I don't have a weapon!" },
+                { type: 'text', content: "He dodged a leap from the first droid. Rusty claws screeched against his shoulder plate." },
+                { type: 'onyx', content: "\"You have me. And we have the memory of a blade. Give me your hand.\"" },
+                { type: 'text', content: "Orion instinctively thrust his right hand forward. This time, no transformation into a cannon occurred. Black nano-matter simply flowed toward his fist, hardening and lengthening." },
+                { type: 'code', content: ">> INITIALIZING: VOID_BLADE\n>> STATUS: ACTIVE" },
+                { type: 'text', content: "With a quiet, vibrating hum, a long, perfectly black blade grew from his fist. It was slightly curved like a katana, but the same purple glitches that flickered in Onyx's eyes ran along its edge. Orion exhaled—the sword weighed almost nothing." },
+                { type: 'text', content: "The saw-equipped forklift roared and charged. Orion didn't think—Onyx controlled his muscles, calculating the trajectory. He stepped forward, dove under a spinning saw, and delivered an upward strike." },
+                { type: 'text', content: "There was no sound of metal hitting metal. The black blade passed through the thick steel of the forklift like a hot knife through butter. Molecular bonds simply disintegrated at the point of the cut. The massive robot froze, and a second later, it fell into two perfectly smooth halves. The cuts glowed purple." },
+                { type: 'orion', content: "— Effective." },
+                { type: 'onyx', content: "\"Do not get distracted. Left!\"" },
+                { type: 'text', content: "The battle turned into a dance. Orion spun like a whirlwind, hacking the rusty droids into pieces. The Void Blade met no resistance. It sliced through hydraulics, armor, and concrete columns. But fatigue was mounting. Every swing of the sword demanded concentration and calories." },
+                { type: 'text', content: "When the last droid collapsed into a heap of scrap metal, the blade retracted back into his arm. Orion fell to his knees, greedily gulping the stale air." },
+                { type: 'system', content: "VITAL SIGN ANALYSIS:\n> PULSE: 180 BPM\n> GLUCOSE LEVEL: CRITICALLY LOW" },
+                { type: 'onyx', content: "\"We are alive. And the server room is directly ahead.\"" },
+                { type: 'text', content: "Orion raised his head. The door to the server room had been breached. Inside, on a terminal, lay the disk." },
+                { type: 'orion', content: "— Too easy... These robots... they weren't guarding the disk. They were guarding something else." },
+                { type: 'text', content: "He took the disk. Upon exiting the plant, he stopped at a food stall and spent all the advance money on three burgers, swallowing them almost without chewing." },
+                { type: 'onyx', content: "\"We make a decent team, Binarythorn. You provide the rage, I provide the precision.\"" },
+                { type: 'orion', content: "— And you also give me a monstrous appetite. I hope the client pays enough." },
+                { type: 'text', content: "Somewhere on the roof of a nearby building, a drone watched them, bearing an emblem Orion hadn't noticed. The emblem resembled a stylized sun. Helios. The hunt had begun." }
+            ]
+        }
+    },
+{
+        id: 7,
+        soundtrack: '/audio/chapter_7.mp3',
+        ru: {
+            title: "Глава 7: Цена тишины",
+            subtitle: "ЗАСАДА // ПОТЕРЯ СВЯЗИ",
+            blocks: [
+                { type: 'text', content: "Место встречи было назначено на крыше одной из жилых мега-башен. Ветер здесь был таким сильным, что сбивал с ног, а кислотный дождь превращался в ледяную крошку." },
+                { type: 'text', content: "Орион стоял на краю, глядя на бесконечное море огней Сектора 7. В руке он сжимал жесткий диск." },
+                { type: 'orion', content: "— Ты нервничаешь." },
+                { type: 'text', content: "Он обращался не к Ониксу, а к своей интуиции." },
+                { type: 'onyx', content: "\"Я анализирую. Сеть в этом районе перегружена. Слишком много шифрованного трафика для трущоб. Мне это не нравится.\"" },
+                { type: 'text', content: "Дверь на крышу открылась. Появился заказчик — тот самый человек в плаще. За ним шли два телохранителя-андроида." },
+                { type: 'unknown', content: "— Ты справился быстрее, чем я думал. Диск у тебя?" },
+                { type: 'text', content: "Орион молча показал накопитель." },
+                { type: 'orion', content: "— Сначала оплата. И еда. Ты обещал пайки." },
+                { type: 'text', content: "Человек усмехнулся и кинул к ногам Ориона тяжелый кейс." },
+                { type: 'unknown', content: "— Там кредиты и армейские рационы с высоким содержанием белка. Хватит на месяц. А теперь дав..." },
+                { type: 'text', content: "Договорить он не успел. Голова заказчика дернулась назад, и в воздухе расцвело облако кровавого тумана. Через долю секунды донесся звук выстрела — сухой треск, похожий на удар хлыста. Тело упало на мокрый бетон." },
+                { type: 'orion', content: "— Снайпер!" },
+                { type: 'text', content: "Орион бросился в укрытие. Но укрываться было не от кого. Они уже были здесь. С неба, разрезая потоки дождя, беззвучно опустились три десантные капсулы. Черный лак, золотая эмблема сияющего солнца. Корпорация «Гелиос»." },
+                { type: 'text', content: "Орион попытался встать, чтобы бежать к пожарной лестнице, но путь ему преградила высокая фигура. Это был «Ловчий». Элитный протоген в белоснежной броне. Его визор не выражал эмоций — на нем горел лишь красный тактический прицел." },
+                { type: 'onyx', content: "\"Орион, беги. Я фиксирую подготовку к...\"" },
+                { type: 'text', content: "Дзынь. К ногам Ориона подкатился небольшой металлический диск." },
+                { type: 'text', content: "Вспышки не было. Был Удар. ЭМИ-граната класса «Тишина» ударила не по глазам, а по нервам. Орион почувствовал, как его кибернетические конечности мгновенно отключаются. Связь мозга с ногами и руками оборвалась. Он рухнул лицом в грязную лужу." },
+                { type: 'system', content: ">> КРИТИЧЕСКИЙ СБОЙ ПИТАНИЯ\n>> СЕРВОПРИВОДЫ: ОФФЛАЙН\n>> ВИЗУАЛЬНЫЙ СЕНСОР: ОШИБКА СИГНАЛА" },
+                { type: 'enemy', content: "— Объект Z-43 обездвижен." },
+                { type: 'text', content: "Голос был холодным и синтезированным. Орион пытался пошевелиться. Его биологическое сердце бешено колотилось, но механическое тело было мертвым грузом. Он был заперт в собственной броне." },
+                { type: 'orion', content: "— Оникс... Сделай... что-нибудь..." },
+                { type: 'onyx', content: "\"Критическая ошибка. Внешняя блокировка. Они взламывают... они... Орион, они используют \"Нейро-Глушилку\". Я ухожу в спящий режим... чтобы... выжить...\"" },
+                { type: 'orion', content: "— Оникс?!" },
+                { type: 'text', content: "Тишина. Впервые за долгое время в его голове наступила абсолютная, пугающая тишина." },
+                { type: 'text', content: "Чья-то тяжелая нога в магнитном ботинке наступила ему на спину, вдавливая грудную клетку в бетон. Орион захрипел от боли." },
+                { type: 'enemy', content: "— Биологические показатели в норме. Носитель жив. Начинаю процедуру сдерживания." },
+                { type: 'text', content: "Ориона перевернули на спину. Сквозь глючащий визор он смутно видел склонившиеся над ним белые фигуры. Один из них достал толстый металлический ошейник с мигающими диодами и защелкнул его на шее Ориона." },
+                { type: 'text', content: "Мир взорвался болью. Ошейник пустил разряд прямо в позвоночник, подавляя любые попытки сопротивления." },
+                { type: 'enemy', content: "— Грузите его. И заберите руку. Осторожно, не активируйте нанитов." },
+                { type: 'text', content: "Двое Ловчих подхватили обмякшее тело Ориона и потащили к капсуле. Его ноги волочились по бетону, оставляя борозды в грязи. Кейс с едой остался лежать в луже, раздавленный сапогом солдата." },
+                { type: 'text', content: "Орион хотел зарычать, ударить, выпустить Клинок Пустоты, но он не мог даже моргнуть. Он был просто куском мяса в отключенном экзоскелете." },
+                { type: 'text', content: "Последнее, что он почувствовал перед тем, как его швырнули в темное нутро десантного корабля — это запах стерильности и озона. Запах тюрьмы." },
+                { type: 'text', content: "Люк захлопнулся, отрезая шум дождя. Орион остался один. Без оружия. Без сил. И, что самое страшное, — без голоса в голове." }
+            ]
+        },
+        en: {
+            title: "Chapter 7: The Price of Silence",
+            subtitle: "AMBUSH // CONNECTION LOST",
+            blocks: [
+                { type: 'text', content: "The meeting point was set on the roof of one of the residential mega-towers. The wind here was so strong it knocked one off their feet, and the acid rain turned into icy grit." },
+                { type: 'text', content: "Orion stood at the edge, gazing at the endless sea of lights of Sector 7. In his hand, he gripped the hard drive." },
+                { type: 'orion', content: "— You're nervous." },
+                { type: 'text', content: "He addressed not Onyx, but his own intuition." },
+                { type: 'onyx', content: "\"I am analyzing. The network in this area is overloaded. Too much encrypted traffic for the slums. I do not like it.\"" },
+                { type: 'text', content: "The door to the roof opened. The client appeared—the same man in the coat. Behind him walked two android bodyguards." },
+                { type: 'unknown', content: "— You managed faster than I thought. Do you have the disk?" },
+                { type: 'text', content: "Orion silently revealed the drive." },
+                { type: 'orion', content: "— Payment first. And food. You promised rations." },
+                { type: 'text', content: "The man grinned and tossed a heavy case at Orion's feet." },
+                { type: 'unknown', content: "— Credits and high-protein army rations. Enough for a month. And now giv..." },
+                { type: 'text', content: "He didn't finish. The client's head jerked back, and a cloud of bloody mist bloomed in the air. A fraction of a second later, the sound of the shot arrived—a dry crack, like a whip strike. The body fell onto the wet concrete." },
+                { type: 'orion', content: "— Sniper!" },
+                { type: 'text', content: "Orion dove for cover. But there was no one to hide from. They were already here. From the sky, slicing through the streams of rain, three drop pods descended silently. Black lacquer, the golden emblem of a shining sun. Helios Corp." },
+                { type: 'text', content: "Orion tried to stand to run to the fire escape, but a tall figure blocked his path. It was a 'Hunter'. An elite protogen in snow-white armor that seemed to repel the filth of this city. His visor expressed no emotion—only a red tactical reticle burned on it." },
+                { type: 'onyx', content: "\"Orion, run. I detect preparation for...\"" },
+                { type: 'text', content: "Clink. A small metal disc rolled to Orion's feet." },
+                { type: 'text', content: "There was no flash. There was an Impact. A 'Silence' class EMP grenade struck not the eyes, but the nerves. Orion felt his cybernetic limbs instantly shut down. The connection between brain and limbs was severed. He collapsed face-first into a dirty puddle." },
+                { type: 'system', content: ">> CRITICAL POWER FAILURE\n>> SERVOS: OFFLINE\n>> VISUAL SENSOR: SIGNAL ERROR" },
+                { type: 'enemy', content: "— Subject Z-43 immobilized." },
+                { type: 'text', content: "The voice was cold and synthesized. Orion tried to move. His biological heart pounded furiously, driving panic into his blood, but the mechanical body was dead weight. He was trapped in his own armor." },
+                { type: 'orion', content: "— Onyx... Do... something..." },
+                { type: 'onyx', content: "\"Critical error. External lockdown. They are hacking... they... Orion, they are using a 'Neuro-Jammer'. I am entering sleep mode... to... survive...\"" },
+                { type: 'orion', content: "— Onyx?!" },
+                { type: 'text', content: "Silence. For the first time in a long while, absolute, terrifying silence fell inside his head." },
+                { type: 'text', content: "Someone's heavy foot in a magnetic boot stepped on his back, crushing his chest into the concrete. Orion wheezed in pain." },
+                { type: 'enemy', content: "— Biological vitals normal. Host is alive. Initiating containment procedure." },
+                { type: 'text', content: "Orion was flipped onto his back. Through the rebooting, glitching visor, he vaguely saw white figures leaning over him. One of them produced a thick metal collar with blinking diodes and snapped it around Orion's neck." },
+                { type: 'text', content: "The world exploded with pain. The collar sent a discharge straight into his spine, suppressing any attempt at resistance." },
+                { type: 'enemy', content: "— Load him up. And secure the arm. Careful, do not activate the nanites." },
+                { type: 'text', content: "Two Hunters grabbed Orion's limp body and dragged him to the pod. His legs dragged along the concrete, leaving furrows in the mud. The case with food lay in the puddle, crushed by a soldier's boot." },
+                { type: 'text', content: "Orion wanted to snarl, to strike, to unleash the Void Blade, but he couldn't even blink. He was just a piece of meat in a powered-down exoskeleton." },
+                { type: 'text', content: "The last thing he smelled before being thrown into the dark belly of the dropship was the scent of sterility and ozone. The scent of prison." },
+                { type: 'text', content: "The hatch slammed shut, cutting off the noise of the rain. Orion was left alone. Without weapons. Without strength. And, most terrifying of all—without the voice in his head." }
+            ]
+        }
+    }
 ];
