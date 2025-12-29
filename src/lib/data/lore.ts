@@ -1,4 +1,4 @@
-export type BlockType = 'text' | 'orion' | 'onyx' | 'system' | 'code' | 'enemy';
+export type BlockType = 'text' | 'orion' | 'onyx' | 'system' | 'code' | 'enemy' | 'civilian' | 'unknown';
 
 export interface LoreBlock {
     type: BlockType;
@@ -249,5 +249,90 @@ export const loreChapters: Chapter[] = [
                 { type: 'text', content: "Orion closed his eyes. The rain outside was soothing. He was a fugitive, a monster, and the carrier of an apocalypse. But for the first time in his life, he felt he wasn't alone." }
             ]
         }
-    }
+    },
+{
+        id: 5,
+        ru: {
+            title: "Глава 5: Тени Сектора 7",
+            subtitle: "ВЫЖИВАНИЕ // НОВЫЙ КОНТРАКТ",
+            blocks: [
+                { type: 'text', content: "Земля не была похожа на рай, который обещали в старых архивах. Сектор 7 пах мокрым бетоном, дешевой синтетической лапшой и безнадежностью. Дождь здесь не прекращался никогда — тяжелый, кислотный, разъедающий краску на стенах зданий." },
+                { type: 'text', content: "Орион сидел в углу тесной забегаловки «У ржавого дракона», ссутулившись над огромной миской." },
+                { type: 'civilian', content: "— Четвертая порция? У тебя глисты, парень? Или ты кормишь армию внутри себя?" },
+                { type: 'text', content: "Бармен протирал стойку тряпкой, которая была грязнее, чем пол. Орион не ответил. Он просто ел. Быстро, жадно, почти не пережевывая. Его биологическое тело требовало топлива. После того гиперпрыжка и активации протоколов Оникса его метаболизм разогнался до предела. Он чувствовал, как его сердце колотится в груди, перекачивая обогащенную нанитами кровь." },
+                { type: 'onyx', content: "\"Медленнее. Ты привлекаешь внимание. Биологические организмы обычно делают паузы для дыхания.\"" },
+                { type: 'orion', content: "— Заткнись. Это ты сжигаешь мои калории. Твои фоновые вычисления жрут больше энергии, чем олимпийский бегун." },
+                { type: 'onyx', content: "\"Я оптимизирую твои рефлексы и постоянно сканирую эфир на предмет частот корпорации «Гелиос». Скажи спасибо, что ты еще жив.\"" },
+                { type: 'text', content: "Орион вздохнул, расплачиваясь последними кредитами, которые они заработали на прошлой неделе, разбирая дронов на свалке." },
+                { type: 'text', content: "Жизнь в Секторе 7 была простой: не выделяйся, не задавай вопросов, носи капюшон. Здесь, среди беглых киборгов, мутантов и дезертиров, никто не смотрел тебе в лицо. Но все смотрели на твое снаряжение." },
+                { type: 'text', content: "Орион вышел на улицу, накинув плащ. Его визор был переведен в режим низкой яркости, светясь тусклым голубым светом. Им нужна была работа. Настоящая работа, а не копание в мусоре." },
+                { type: 'enemy', content: "— Эй, жестянка!" },
+                { type: 'text', content: "Орион замер. Из переулка вышли трое. Местная шпана — «Шакалы». Полулюди-полумашины, обвешанные дешевыми, ржавыми имплантами. У главаря вместо руки была гидравлическая клешня, с которой капало масло." },
+                { type: 'enemy', content: "— Говорят, ты новенький. В Секторе 7 есть налог на воздух. Плати или мы разберем тебя на запчасти. Твои ножки выглядят дорогими." },
+                { type: 'text', content: "Орион чувствовал, как внутри закипает страх — нормальная реакция живого существа. Но поверх страха, холодной волной, накладывался расчет Оникса." },
+                { type: 'onyx', content: "\"Угроза: низкая. Три цели. Вооружение: кустарное. Рекомендую перелом коленных чашечек. Летальный исход не требуется, это привлечет копов.\"" },
+                { type: 'orion', content: "— У меня нет денег." },
+                { type: 'enemy', content: "— Тогда мы возьмем натурой!" },
+                { type: 'text', content: "Бандит бросился вперед, замахиваясь клешней. Мир для Ориона замедлился. Это не было магией, это Оникс перехватил контроль над нервной системой, разгоняя синапсы мозга." },
+                { type: 'text', content: "Орион не стал доставать Z-43 — слишком жирно для такой падали. Вместо этого он двигался с неестественной плавностью. Удар клешни прошел в миллиметре от его визора. Орион перехватил руку бандита, используя инерцию врага, и с хрустом вывернул локтевой сустав в обратную сторону." },
+                { type: 'text', content: "Это было движение не протогена, а машины смерти. Двое других кинулись на него с ножами." },
+                { type: 'onyx', content: "\"Слева — печень. Справа — сонная артерия. Действуй.\"" },
+                { type: 'text', content: "Орион, ведомый внутренним голосом, ударил хвостом по ногам одного, сбивая с ног, а второго встретил жестким ударом ладони в горло. Вся схватка заняла три секунды." },
+                { type: 'text', content: "Трое «Шакалов» валялись в грязной луже, стоная от боли. Орион стоял над ними, тяжело дыша. Его сердце бешено колотилось, требуя кислорода." },
+                { type: 'orion', content: "— Я... я же просил..." },
+                { type: 'text', content: "Он чувствовал, как адреналин сменяется резкой усталостью. В тени переулка кто-то захлопал в ладоши. Орион резко обернулся. В темноте стояла фигура в дорогом плаще." },
+                { type: 'unknown', content: "— Красиво. Движения слишком точные для обычного бродяги. И фамилия у тебя интересная... Байнариторн, верно?" },
+                { type: 'text', content: "Орион напрягся. Оникс внутри зарычал статическим шумом." },
+                { type: 'onyx', content: "\"Внимание. Сканирование показывает наличие нейросети высокого уровня. Это не уличный мусор. Это заказчик.\"" },
+                { type: 'unknown', content: "— Я ищу таких, как ты. Есть работа. Опасная. Плачу чистой энергией и едой. Много еды." },
+                { type: 'text', content: "Незнакомец кинул Ориону чип с данными. Орион поймал его." },
+                { type: 'orion', content: "— Что за работа?" },
+                { type: 'unknown', content: "— Нужно достать кое-что из «Мертвой Зоны» старого завода. Говорят, там живут призраки. Но я думаю, ты с ними договоришься." },
+                { type: 'text', content: "Незнакомец растворился в неоне ночного города. Орион посмотрел на чип, потом на свою черную руку, скрытую под перчаткой." },
+                { type: 'orion', content: "— Кажется, мы нашли способ заработать на ужин, Оникс." },
+                { type: 'onyx', content: "\"Или способ найти новые неприятности. Мне нравится. Идем.\"" }
+            ]
+        },
+        en: {
+            title: "Chapter 5: Shadows of Sector 7",
+            subtitle: "SURVIVAL // NEW CONTRACT",
+            blocks: [
+                { type: 'text', content: "Earth didn't look like the paradise promised in old archives. Sector 7 smelled of wet concrete, cheap synthetic noodles, and hopelessness. The rain here never stopped—heavy, acidic, corroding the paint on building walls." },
+                { type: 'text', content: "Orion sat in the corner of a cramped eatery called 'The Rusty Dragon', hunched over a huge bowl." },
+                { type: 'civilian', content: "— Fourth serving? You got worms, kid? Or are you feeding an army inside you?" },
+                { type: 'text', content: "The bartender wiped the counter with a rag dirtier than the floor. Orion didn't answer. He just ate. Fast, greedily, barely chewing. His biological body demanded fuel. After that hyperjump and the activation of Onyx protocols, his metabolism had redlined. He felt his heart pounding in his chest, pumping nanite-enriched blood." },
+                { type: 'onyx', content: "\"Slower. You are attracting attention. Biological organisms usually pause to breathe.\"" },
+                { type: 'orion', content: "— Shut up. You're the one burning my calories. Your background calculations eat more energy than an Olympic runner." },
+                { type: 'onyx', content: "\"I am optimizing your reflexes and constantly scanning the ether for Helios Corp frequencies. Be grateful you are still alive.\"" },
+                { type: 'text', content: "Orion sighed, paying with the last credits they earned last week stripping droids at the scrapyard." },
+                { type: 'text', content: "Life in Sector 7 was simple: don't stand out, don't ask questions, wear a hood. Here, among fugitive cyborgs, mutants, and deserters, no one looked at your face. But everyone looked at your gear." },
+                { type: 'text', content: "Orion stepped outside, pulling up his cloak. His visor was set to low brightness mode, glowing with a dim blue light. They needed a job. A real job, not digging in trash." },
+                { type: 'enemy', content: "— Hey, tin can!" },
+                { type: 'text', content: "Orion froze. Three emerged from the alley. Local punks—'Jackals'. Half-human, half-machine, draped in cheap, rusty implants. The leader had a hydraulic claw instead of a hand, dripping oil." },
+                { type: 'enemy', content: "— Word is you're new here. Sector 7 has an air tax. Pay up, or we strip you for parts. Your legs look expensive." },
+                { type: 'text', content: "Orion felt fear bubbling inside—a normal reaction for a living being. But layered over the fear, like a cold wave, was Onyx's calculation." },
+                { type: 'onyx', content: "\"Threat: low. Three targets. Weaponry: homemade. I recommend fracturing patellas. Lethal force not required; it will attract cops.\"" },
+                { type: 'orion', content: "— I don't have money." },
+                { type: 'enemy', content: "— Then we'll take it out of your hide!" },
+                { type: 'text', content: "The thug lunged forward, swinging his claw. The world slowed down for Orion. It wasn't magic; it was Onyx hijacking the nervous system, overclocking brain synapses." },
+                { type: 'text', content: "Orion didn't draw Z-43—waste of energy for such trash. Instead, he moved with unnatural smoothness. The claw strike passed a millimeter from his visor. Orion intercepted the bandit's arm, using the enemy's momentum, and snapped the elbow joint backward with a crunch." },
+                { type: 'text', content: "It wasn't the movement of a protogen, but of a killing machine. The other two rushed him with knives." },
+                { type: 'onyx', content: "\"Left—liver. Right—carotid artery. Execute.\"" },
+                { type: 'text', content: "Guided by the inner voice, Orion swept the legs of one with his tail, knocking him down, and met the second with a rigid palm strike to the throat. The whole fight took three seconds." },
+                { type: 'text', content: "Three 'Jackals' lay in a dirty puddle, groaning in pain. Orion stood over them, breathing heavily. His heart pounded furiously, demanding oxygen." },
+                { type: 'orion', content: "— I... I asked you..." },
+                { type: 'text', content: "He felt adrenaline replaced by sharp fatigue. In the shadows of the alley, someone clapped. A figure in an expensive coat stepped out of the darkness." },
+                { type: 'unknown', content: "— Beautiful. Movements too precise for a common drifter. And your last name is interesting... Binarythorn, right?" },
+                { type: 'text', content: "Orion tensed. Onyx growled with static noise inside." },
+                { type: 'onyx', content: "\"Warning. Scan indicates high-level neural network presence. This is not street trash. This is a client.\"" },
+                { type: 'unknown', content: "— I'm looking for people like you. There is a job. Dangerous. I pay in pure energy and food. Lots of food." },
+                { type: 'text', content: "The stranger tossed a data chip to Orion. Orion caught it." },
+                { type: 'orion', content: "— What kind of job?" },
+                { type: 'unknown', content: "— Need to retrieve something from the 'Dead Zone' of the old factory. Rumor has it ghosts live there. But I think you'll reach an agreement with them." },
+                { type: 'text', content: "The stranger dissolved into the neon of the night city. Orion looked at the chip, then at his black hand hidden under a glove." },
+                { type: 'orion', content: "— Looks like we found a way to earn dinner, Onyx." },
+                { type: 'onyx', content: "\"Or a way to find new trouble. I like it. Let's go.\"" }
+            ]
+        }
+    },
 ];
