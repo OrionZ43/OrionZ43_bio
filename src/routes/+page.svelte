@@ -174,7 +174,7 @@
         <footer class="border-t border-white/5 bg-black/80 backdrop-blur-xl py-8 mt-auto">
             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-600">
                 <p>
-                    © 2025 ORION_Z43. ALL RIGHTS RESERVED.
+                    © 2026 ORION_Z43. ALL RIGHTS RESERVED.
                 </p>
                 <div class="flex items-center gap-4">
                     <span class="flex items-center gap-2">
